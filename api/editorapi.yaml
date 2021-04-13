@@ -23,6 +23,7 @@ channels:
       summary: Ready Notification
       description: The editor announces that it's code is loaded and initialized so the communication can start.
       message:
+        name: voeReadyNotification
         payload:
           type: object
           properties:
@@ -52,6 +53,7 @@ channels:
       summary: Start Command
       description: The application sends parameters for editing the unit and commands the start of user interaction.
       message:
+        name: voeStartCommand
         contentType: application/json
         payload:
           type: object
@@ -90,6 +92,7 @@ channels:
       summary: Definition Changed Notification
       description: The defintion of the unit has changed.
       message:
+        name: voeDefinitionChangedNotification
         contentType: application/json
         payload:
           type: object
@@ -115,6 +118,7 @@ channels:
       description: The application wants the editor to report the last state of the definition. The
         editor will answer by sending 'voeDefinitionChangedNotification' with full payload.
       message:
+        name: voeGetDefinitionRequest
         contentType: application/json
         payload:
           type: object
