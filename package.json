@@ -7,8 +7,8 @@
     "url": "https://github.com/verona-interfaces/editor"
   },
   "scripts": {
-    "ag-md": "ag -o ./api ./api/editorapi.yaml markdown",
-    "ag-html": "ag -o ./docs ./api/editorapi.yaml html"
+    "ag": "ag -o ./api ./api/editorapi.yaml @asyncapi/markdown-template --force-write",
+    "postag": "ag -o ./docs ./api/editorapi.yaml @asyncapi/html-template --force-write"
   },
   "private": true,
   "devDependencies": {
