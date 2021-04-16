@@ -107,6 +107,11 @@ channels:
               type: string
               format: byte
               description: To be stored.
+            unitDefinitionType:
+              type: string
+              description: In order to understand the defintion outside the editor, the type of the definition
+                should be known. This helps to select a suitable player to run the unit.
+              example: 'iqb-scripted@1.4.0'
           required:
             - sessionId
             - timeStamp
