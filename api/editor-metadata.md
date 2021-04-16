@@ -11,8 +11,9 @@ the main html file:
 ```
     <meta name="application-name" content="iqb verona editor dan"
           data-version="2.0.6"
-          data-repository-url="https://github.com/iqb-berlin/verona-editor-dan"
+          data-type="verona-editor"
           data-api-version="2.0.0"
+          data-repository-url="https://github.com/iqb-berlin/verona-editor-dan"
           data-not-supported-api-features="report-eager"
           [...]
     />
@@ -21,8 +22,9 @@ the main html file:
 ### Metadata in detail
 * `content`: application name
 * `data-version`: version of the editor
-* `data-repository-url`: if published, the url of the code repository should be given to get further information
+* `data-type`: must be `verona-editor` (other verona modules carry other tags)
 * `data-api-version`: version of the interface supported by the editor;  This information is also given via `voeReadyNotification`.
+* `data-repository-url`: if published, the url of the code repository should be given to get further information
 * `data-not-supported-api-features`: keys of not supported features separated by space (see below);  This information is also given via `voeReadyNotification`. BTW the documentation of hosts could use this way of declaration for missing features as well.
 * `data-supported-unit-definition-types`: Space separated list of keys of unit definition formats supported by the editor. After a '@' char, a version might be added (semver-format, caret and tilde might be used). This information is also given via `voeReadyNotification`.
 
