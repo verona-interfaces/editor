@@ -1,0 +1,158 @@
+asyncapi: 2.0.0
+info:
+  title: Verona Inferfaces Specification "Editor"
+  version: '2.0.0'
+  description: This is one part of the Verona Online Assessment Standards.
+    All messages are sent via the postMessage function of the html page. The editor takes the page root of its parent
+    as target (parent.window), and the application binds the function call to the iframe element of the editor.
+
+    Most important, the message body carries as first parameter the operationId of the message.
+
+  license:
+    name: CC BY-SA 4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+  contact:
+    name: Institute for Educational Quality Improvement (IQB)
+    url: https://www.iqb.hu-berlin.de
+    email: iqb-tbadev@hu-berlin.de
+
+channels:
+  voeReadyNotification:
+    subscribe:
+      operationId: voeReadyNotification
+      summary: Ready Notification
+      description: The editor announces that it's code is loaded and initialized so the communication can start.
+      message:
+        name: voeReadyNotification
+        payload:
+          type: object
+          properties:
+            apiVersion:
+              type: string
+              pattern: '^\d+\.\d+.\d+$'
+              description: This lets the application know what verona API version the editor supports. The host will
+                decide whether this declaration matches the requirements of the host or not and which features are not or
+                differently implemented by the editor.
+              example: '1.1.0'
+            notSupportedApiFeatures:
+              type: string
+              description: Space separated list of keys of features not implemented by the player. For details see
+                corresponding player metadata doc!
+              example: 'report-eager'
+            supportedUnitDefinitionTypes:
+              type: string
+              description: Space separated list of keys of unit definition formats supported by the player. After a
+                '@' char, a version might be added (semver-format, caret and tilde might be used).
+              example: 'iqb-scripted@2.4.1'
+          required:
+            - apiVersion
+
+  voeStartCommand:
+    publish:
+      operationId: voeStartCommand
+      summary: Start Command
+      description: The application sends parameters for editing the unit and commands the start of user interaction.
+      message:
+        name: voeStartCommand
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            sessionId:
+              $ref: "#/components/schemas/SessionIdString"
+            unitDefinition:
+              type: string
+              format: byte
+              description: The definition of the unit (if given) to be edited.
+              example: 'iqb-scripted::1.4.0
+                        title::Testscript Title2??Hilfetext2
+                        multiple-choice::mc_var1::1::Multiple Choice Feld: ::Choice1##Choice2##Choice3??Hilfetext1
+                        drop-down::dd_var1::1::Dropdown Feld: ::Choice1##Choice2##Choice3??Hilfetext1
+                        checkbox::check_var1::0::Ja klick mal!
+                        if-start::dd_var1::1
+                          input-text::jajaj::sap osjxapsoxa
+                        if-else
+                          input-text::jajaj22::sap osjxapsoxa UUUU
+                          text::NOT Choice1
+                        if-end'
+            unitDefinitionType:
+              type: string
+              description: This lets the editor the unit definition format know. This might avoid UI mess after
+                getting old definitions.
+              example: 'iqb-scripted@1.4.0'
+            editorConfig:
+              $ref: "#/components/schemas/EditorConfig"
+              description: This data supplies some information or instruction about this specific editing of the unit.
+          required:
+            - sessionId
+
+  voeDefinitionChangedNotification:
+    subscribe:
+      operationId: voeDefinitionChangedNotification
+      summary: Definition Changed Notification
+      description: The defintion of the unit has changed.
+      message:
+        name: voeDefinitionChangedNotification
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            sessionId:
+              $ref: "#/components/schemas/SessionIdString"
+            timeStamp:
+              type: string
+              format: date-time
+              description: Ensures, that later arriving states are ignored.
+            unitDefinition:
+              type: string
+              format: byte
+              description: To be stored.
+            unitDefinitionType:
+              type: string
+              description: In order to understand the defintion outside the editor, the type of the definition
+                should be known. This helps to select a suitable player to run the unit.
+              example: 'iqb-scripted@1.4.0'
+          required:
+            - sessionId
+            - timeStamp
+
+  voeGetDefinitionRequest:
+    publish:
+      operationId: voeGetDefinitionRequest
+      summary: Get Definition Request
+      description: The application wants the editor to report the last state of the definition. The
+        editor will answer by sending 'voeDefinitionChangedNotification' with full payload.
+      message:
+        name: voeGetDefinitionRequest
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            sessionId:
+              $ref: "#/components/schemas/SessionIdString"
+          required:
+            - sessionId
+
+components:
+  schemas:
+    SessionIdString:
+      description: The session id flags all communication. If a message has no or empty
+        session id, it's not processed. The session id is unique and was generated by the application. Any
+        simple algorithm would work. The session id helps to link the correct unit with the
+        data of the message. Using the id of the editor hosting html element is less reliable, because the
+        element could be reused with another unit.
+      type: string
+      example: 'idk8ur5jf9ru5jk'
+
+    EditorConfig:
+      type: object
+      properties:
+        definitionReportPolicy:
+          description: The host expects the editor to send all changes when happening or only on demand. The latter
+            might lead to better performance. In this case (default),
+            the host triggers report by sending 'voeGetDefinitionRequest'.
+          type: string
+          enum:
+            - eager
+            - on-demand
+          example: 'eager'

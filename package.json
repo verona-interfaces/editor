@@ -1,0 +1,21 @@
+{
+  "name": "verona-interfaces_specification_editor",
+  "version": "2.0.0",
+  "license": "BY BY-SA 4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/verona-interfaces/editor"
+  },
+  "scripts": {
+    "ag": "ag -o ./api ./api/editorapi.yaml @asyncapi/markdown-template --force-write",
+    "postag": "ag -o ./docs ./api/editorapi.yaml @asyncapi/html-template --force-write"
+  },
+  "private": true,
+  "devDependencies": {
+    "@asyncapi/generator": "^1.6.8"
+  },
+  "dependencies": {
+    "@asyncapi/html-template": "^0.19.0",
+    "@asyncapi/markdown-template": "^0.13.7"
+  }
+}
