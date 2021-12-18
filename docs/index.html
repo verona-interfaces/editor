@@ -9,7 +9,7 @@
     
     
     
-    <span>2.0.0</span>
+    <span>3.0.0</span>
  documentation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -38,7 +38,7 @@
     
     
     
-    <span>2.0.0</span>
+    <span>3.0.0</span>
 
       </h1>
     
@@ -185,7 +185,7 @@
     
     
     
-    <span>2.0.0</span>
+    <span>3.0.0</span>
 </h1>
   <div class="leading-normal mb-4">
     
@@ -197,7 +197,8 @@
 
   <div class="markdown">
     <p>This is one part of the Verona Online Assessment Standards. All messages are sent via the postMessage function of the html page. The editor takes the page root of its parent as target (parent.window), and the application binds the function call to the iframe element of the editor.
-Most important, the message body carries as first parameter the operationId of the message.</p>
+Most important, the message body carries as first parameter the operationId of the message.
+The html page MUST contain a &lt;script&gt;-tag with metadata. The syntax and structure of this data are described <a href="https://github.com/verona-interfaces/metadata/#readme">here</a>.</p>
 
   </div>
 
@@ -362,7 +363,7 @@ object
         <span
           class="text-sm"
           style="word-break: break-word"
-          >apiVersion</span
+          >metadata</span
         >
            
         <div class="text-red-600 text-xs">required</div>
@@ -374,99 +375,13 @@ object
           
 string   
           <div class="inline-block">
-                     
-            <span
-              class="bg-purple-600 font-bold no-underline text-white rounded normal-case ml-2"
-              style="height: 20px; font-size: 11px; padding: 3px"
-              >must match ^\d+\.\d+.\d+$</span
-            >
-             
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>This lets the application know what verona API version the editor supports. The host will decide whether this declaration matches the requirements of the host or not and which features are not or differently implemented by the editor.</p>
-</div>
-
-    
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-      
-
-<div
-  class="bg-gray-100 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class=" flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >notSupportedApiFeatures</span
-        >
-            
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-string   
-          <div class="inline-block">
                       
           </div>
         </div>
 
         
 
-<div class="text-sm markdown"><p>Space separated list of keys of features not implemented by the player. For details see corresponding player metadata doc!</p>
-</div>
-
-    
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-      
-
-<div
-  class="bg-gray-100 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class=" flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >supportedUnitDefinitionTypes</span
-        >
-            
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-string   
-          <div class="inline-block">
-                      
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Space separated list of keys of unit definition formats supported by the player. After a '@' char, a version might be added (semver-format, caret and tilde might be used).</p>
+<div class="text-sm markdown"><p>Via this property, the editor sends the stringified metadata object definied as json-ld in the header of the html file. See <a href="https://github.com/verona-interfaces/metadata/#readme">here</a> for more information.</p>
 </div>
 
     
@@ -538,9 +453,7 @@ string
       <div class="children payload-examples mt-4">
         
         <pre class="hljs mb-4 border border-gray-800 rounded"><code>{
-  "apiVersion": "1.1.0",
-  "notSupportedApiFeatures": "report-eager",
-  "supportedUnitDefinitionTypes": "iqb-scripted@2.4.1"
+  "metadata": "string"
 }</code></pre>
         <h6 class="text-xs font-bold text-gray-700 italic">This example has been generated automatically.</h6>
         
@@ -1758,7 +1671,7 @@ object
         <span
           class="text-sm"
           style="word-break: break-word"
-          >apiVersion</span
+          >metadata</span
         >
            
         <div class="text-red-600 text-xs">required</div>
@@ -1770,99 +1683,13 @@ object
           
 string   
           <div class="inline-block">
-                     
-            <span
-              class="bg-purple-600 font-bold no-underline text-white rounded normal-case ml-2"
-              style="height: 20px; font-size: 11px; padding: 3px"
-              >must match ^\d+\.\d+.\d+$</span
-            >
-             
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>This lets the application know what verona API version the editor supports. The host will decide whether this declaration matches the requirements of the host or not and which features are not or differently implemented by the editor.</p>
-</div>
-
-    
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-      
-
-<div
-  class="bg-gray-100 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class=" flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >notSupportedApiFeatures</span
-        >
-            
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-string   
-          <div class="inline-block">
                       
           </div>
         </div>
 
         
 
-<div class="text-sm markdown"><p>Space separated list of keys of features not implemented by the player. For details see corresponding player metadata doc!</p>
-</div>
-
-    
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-      
-
-<div
-  class="bg-gray-100 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class=" flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >supportedUnitDefinitionTypes</span
-        >
-            
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-string   
-          <div class="inline-block">
-                      
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Space separated list of keys of unit definition formats supported by the player. After a '@' char, a version might be added (semver-format, caret and tilde might be used).</p>
+<div class="text-sm markdown"><p>Via this property, the editor sends the stringified metadata object definied as json-ld in the header of the html file. See <a href="https://github.com/verona-interfaces/metadata/#readme">here</a> for more information.</p>
 </div>
 
     

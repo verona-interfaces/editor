@@ -1,7 +1,8 @@
-# Verona Inferfaces Specification "Editor" 2.0.0 documentation
+# Verona Inferfaces Specification "Editor" 3.0.0 documentation
 
 This is one part of the Verona Online Assessment Standards. All messages are sent via the postMessage function of the html page. The editor takes the page root of its parent as target (parent.window), and the application binds the function call to the iframe element of the editor.
 Most important, the message body carries as first parameter the operationId of the message.
+The html page MUST contain a <script>-tag with metadata. The syntax and structure of this data are described [here](https://github.com/verona-interfaces/metadata/#readme).
 ## Table of Contents
 
 * [Channels](#channels)
@@ -22,17 +23,13 @@ The editor announces that it's code is loaded and initialized so the communicati
 
 | Name | Type | Description | Accepted values |
 |-|-|-|-|
-| apiVersion **(required)** | string | This lets the application know what verona API version the editor supports. The host will decide whether this declaration matches the requirements of the host or not and which features are not or differently implemented by the editor. | _Any_ |
-| notSupportedApiFeatures | string | Space separated list of keys of features not implemented by the player. For details see corresponding player metadata doc! | _Any_ |
-| supportedUnitDefinitionTypes | string | Space separated list of keys of unit definition formats supported by the player. After a '@' char, a version might be added (semver-format, caret and tilde might be used). | _Any_ |
+| metadata **(required)** | string | Via this property, the editor sends the stringified metadata object definied as json-ld in the header of the html file. See [here](https://github.com/verona-interfaces/metadata/#readme) for more information. | _Any_ |
 
 > Examples of payload _(generated)_
 
 ```json
 {
-  "apiVersion": "1.1.0",
-  "notSupportedApiFeatures": "report-eager",
-  "supportedUnitDefinitionTypes": "iqb-scripted@2.4.1"
+  "metadata": "string"
 }
 ```
 
