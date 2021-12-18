@@ -9,13 +9,14 @@ A Verona Editor is a Html-file to be loaded into an iframe element of a web appl
 Read the spec here:
 * [Html-Document](https://verona-interfaces.github.io/editor)
 * [Markdown-Document](docs/asyncapi.md)
-* [AsynchApi source yaml](api/editorapi.yaml)
+* [AsyncApi source yaml](api/editorapi.yaml)
 
 The editor file must contain of one script tag for metadata as json-ld. The syntax and elements are described [here](https://github.com/verona-interfaces/metadata).
 
 ## release notes
 ### 3.0
 * specify metadata as json-ld as described [here](https://github.com/verona-interfaces/metadata/#readme); changed `voeReadyNotification` to send this `metadata` instead of `apiVersion`, `notSupportedApiFeatures` and `supportedUnitDefinitionTypes`
+* add variable data to `voeDefinitionChangedNotification` to support coding scheme
 
 ### 2.0
 * almost all operation ids renamed

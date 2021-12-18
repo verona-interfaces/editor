@@ -90,6 +90,15 @@ The defintion of the unit has changed.
 | timeStamp **(required)** | string | Ensures, that later arriving states are ignored. | _Any_ |
 | unitDefinition | string | To be stored. | _Any_ |
 | unitDefinitionType | string | In order to understand the defintion outside the editor, the type of the definition should be known. This helps to select a suitable player to run the unit. | _Any_ |
+| variables | arrayobject | Variable data help to prepare the processing of answers (coding scheme). | _Any_ |
+| variables.id **(required)** | string | - | _Any_ |
+| variables.type **(required)** | string | Data type of the value. | string, integer, number, boolean |
+| variables.format | string | Some more information to specify the data type of the value. Every editor might introduce special formats to support answer processing. One example at IQB is 'marking' to store text markings in the form of '85-113-orange'. | _Any_ |
+| variables.multiple | boolean | If true, the value can contain multiple values as array. | _Any_ |
+| variables.values | arrayobject | This list contains of possible values of the variable. | _Any_ |
+| variables.values.value **(required)** | string | - | _Any_ |
+| variables.values.label | string | Label to describe the value. If - for example - there are options to select and these options are stored as numbers 1/2/3 etc., the label can help to identify the selected option in dialogs and analyses. | _Any_ |
+| variables.valuesComplete | boolean | If true, the list of possible values contains of ALL possible values. | _Any_ |
 
 > Examples of payload _(generated)_
 
@@ -98,7 +107,22 @@ The defintion of the unit has changed.
   "sessionId": "idk8ur5jf9ru5jk",
   "timeStamp": "2019-08-24T14:15:22Z",
   "unitDefinition": "string",
-  "unitDefinitionType": "iqb-scripted@1.4.0"
+  "unitDefinitionType": "iqb-scripted@1.4.0",
+  "variables": [
+    {
+      "id": "ME3491a",
+      "type": "boolean",
+      "format": "marking",
+      "multiple": true,
+      "values": [
+        {
+          "value": "1",
+          "label": "I love Berlin."
+        }
+      ],
+      "valuesComplete": true
+    }
+  ]
 }
 ```
 
