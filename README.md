@@ -9,7 +9,7 @@ authoring a unit. It is used in applications like task pools or item banks.
 
 Texts about Editor API:
 * API
-  * [markdown](api/asyncapi.md)
+  * [markdown](docs/asyncapi.md)
   * [shiny html](https://verona-interfaces.github.io/editor)
 * see also: [editor metadata](api/editor-metadata.md)
 
