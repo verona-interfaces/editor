@@ -151,7 +151,7 @@ components:
           example: 'ME3491a'
         type:
           type: string
-          description: Data type of the value.
+          description: Data type of the value. Additionally, the value might be of type `null` if `nullable` property below is set `true`.
           enum:
             - string
             - integer
@@ -164,7 +164,10 @@ components:
           example: 'marking'
         multiple:
           type: boolean
-          description: If true, the value can contain multiple values as array.
+          description: If true, the value can contain multiple values as array of same type.
+        nullable:
+          type: boolean
+          description: If true, the value can be `null` instead of type above. In this case, the value `null` represents a response different to empty or 0.
         values:
           description: This list contains of possible values of the variable.
           type: array

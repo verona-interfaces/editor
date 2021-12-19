@@ -92,9 +92,10 @@ The defintion of the unit has changed.
 | unitDefinitionType | string | In order to understand the defintion outside the editor, the type of the definition should be known. This helps to select a suitable player to run the unit. | _Any_ |
 | variables | arrayobject | Variable data help to prepare the processing of answers (coding scheme). | _Any_ |
 | variables.id **(required)** | string | - | _Any_ |
-| variables.type **(required)** | string | Data type of the value. | string, integer, number, boolean |
+| variables.type **(required)** | string | Data type of the value. Additionally, the value might be of type `null` if `nullable` property below is set `true`. | string, integer, number, boolean |
 | variables.format | string | Some more information to specify the data type of the value. Every editor might introduce special formats to support answer processing. One example at IQB is 'marking' to store text markings in the form of '85-113-orange'. | _Any_ |
-| variables.multiple | boolean | If true, the value can contain multiple values as array. | _Any_ |
+| variables.multiple | boolean | If true, the value can contain multiple values as array of same type. | _Any_ |
+| variables.nullable | boolean | If true, the value can be `null` instead of type above. In this case, the value `null` represents a response different to empty or 0. | _Any_ |
 | variables.values | arrayobject | This list contains of possible values of the variable. | _Any_ |
 | variables.values.value **(required)** | string | - | _Any_ |
 | variables.values.label | string | Label to describe the value. If - for example - there are options to select and these options are stored as numbers 1/2/3 etc., the label can help to identify the selected option in dialogs and analyses. | _Any_ |
@@ -114,6 +115,7 @@ The defintion of the unit has changed.
       "type": "boolean",
       "format": "marking",
       "multiple": true,
+      "nullable": true,
       "values": [
         {
           "value": "1",
