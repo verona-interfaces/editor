@@ -1,4 +1,6 @@
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/verona-interfaces/editor)
+
 # Verona Interfaces: Specification for Editor
 
 In order to understand Verona Interfaces, please go
@@ -14,6 +16,10 @@ Read the spec here:
 The editor file must contain of one script tag for metadata as json-ld. The syntax and elements are described [here](https://github.com/verona-interfaces/metadata).
 
 ## release notes
+### 4.0
+* the editor should send always full payload; in case of performance issues, the editor should use strategies like buffer/delay/debounce; therefor, `voeGetDefinitionRequest` and `definitionReportPolicy` property of `editorConfig` in `voeStartCommand` are removed
+* added `directDownloadUrl` in `editorConfig` to enable download of additional code or data by the editor
+
 ### 3.0
 * specify metadata as json-ld as described [here](https://github.com/verona-interfaces/metadata/#readme); changed `voeReadyNotification` to send this `metadata` instead of `apiVersion`, `notSupportedApiFeatures` and `supportedUnitDefinitionTypes`
 * add variable data to `voeDefinitionChangedNotification` to support coding scheme
