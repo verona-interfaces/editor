@@ -17,8 +17,9 @@ The editor file must contain of one script tag for metadata as json-ld. The synt
 
 ## release notes
 ### 4.0
-* the editor should send always full payload; in case of performance issues, the editor should use strategies like buffer/delay/debounce; therefor, `voeGetDefinitionRequest` and `definitionReportPolicy` property of `editorConfig` in `voeStartCommand` are removed
+* the editor should send always full payload; in case of performance issues, the editor should use strategies like buffer/delay/debounce; therefor, `voeGetDefinitionRequest` and `definitionReportPolicy` property of `editorConfig` in `voeStartCommand` are removed; properties `unitDefinition` and `unitDefinitionType` in `voeDefinitionChangedNotification` are now required
 * added `directDownloadUrl` in `editorConfig` to enable download of additional code or data by the editor
+* added dependencies `dependenciesToPlay` and `dependenciesToEdit` to play or to edit the unit in `voeDefinitionChangedNotification`
 
 ### 3.0
 * specify metadata as json-ld as described [here](https://github.com/verona-interfaces/metadata/#readme); changed `voeReadyNotification` to send this `metadata` instead of `apiVersion`, `notSupportedApiFeatures` and `supportedUnitDefinitionTypes`
