@@ -16,6 +16,10 @@ Read the spec here:
 The editor file must contain of one script tag for metadata as json-ld. The syntax and elements are described [here](https://github.com/verona-interfaces/metadata).
 
 ## release notes
+### 4.1
+* add page identifier to variable info; this might help to locate items
+* change handling of variable-list: Separate json schema, tests added
+
 ### 4.0
 * the editor should send always full payload; in case of performance issues, the editor should use strategies like buffer/delay/debounce; therefor, `voeGetDefinitionRequest` and `definitionReportPolicy` property of `editorConfig` in `voeStartCommand` are removed; properties `unitDefinition` and `unitDefinitionType` in `voeDefinitionChangedNotification` are now required
 * added `directDownloadUrl` in `editorConfig` to enable download of additional code or data by the editor
@@ -34,3 +38,5 @@ The editor file must contain of one script tag for metadata as json-ld. The synt
 The api is written as [async api](https://www.asyncapi.com) yaml file. After editing, we create markdown and html files for better reading.
 
 To ease that post processing, we use [node.js](https://nodejs.org). The repo contains a package.json. By running `npm install` you get the tool `@asyncapi/generator` and two templates. Run `npm run ag` to recreate html and markdown representations of the api.
+
+To test the json schema of variable-list, we use `ajv`. Run `npm run test_variable_list` to check.
