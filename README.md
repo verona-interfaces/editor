@@ -16,6 +16,9 @@ Read the spec here:
 The editor file must contain of one script tag for metadata as json-ld. The syntax and elements are described [here](https://github.com/verona-interfaces/metadata).
 
 ## release notes
+### 4.2
+* add more possible values of `format` property in `variable info`
+
 ### 4.1
 * add page identifier to variable info; this might help to locate items
 * change handling of variable-list: Separate json schema, tests added

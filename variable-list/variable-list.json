@@ -31,7 +31,10 @@
           "capture-image",
           "audio",
           "ggb-file",
-          "non-negative"
+          "non-negative",
+          "latex",
+          "math-ml",
+          "math-table"
         ],
         "description": "More specification for value type"
       },
