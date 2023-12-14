@@ -106,7 +106,7 @@ The definition of the unit has changed.
 | variables | array<object> | Data structure produced by verona editors, consumed by schemer etc. | - | - | - |
 | variables.id | string | Identifier for the variable | - | pattern (`^[0-9a-zA-Z_]+$`) | **required** |
 | variables.type | string | Value type | allowed (`"string"`, `"integer"`, `"number"`, `"boolean"`, `"attachment"`) | - | **required** |
-| variables.format | string | More specification for value type | allowed (`"text-selection"`, `"image"`, `"capture-image"`, `"audio"`, `"ggb-file"`, `"non-negative"`, `"latex"`, `"math-ml"`, `"math-table"`) | - | - |
+| variables.format | string | More specification for value type | allowed (`"text-selection"`, `"image"`, `"capture-image"`, `"audio"`, `"ggb-file"`, `"ggb-variable"`, `"non-negative"`, `"latex"`, `"math-ml"`, `"math-table"`) | - | - |
 | variables.multiple | boolean | If true, this variable can hold an array of values. | - | - | - |
 | variables.nullable | boolean | If true, this variable can hold null as value. | default (`true`) | - | - |
 | variables.values | array<object> | List of all known possible values with labels if given. | default (`[]`) | - | - |

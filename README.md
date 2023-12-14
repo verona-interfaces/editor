@@ -12,6 +12,7 @@ Read the spec here:
 * [Html-Document](https://verona-interfaces.github.io/editor)
 * [Markdown-Document](docs/asyncapi.md)
 * [AsyncApi source yaml](api/editorapi.yaml)
+* [some more doc for variable list](variable-list.doc.md)
 
 The editor file must contain of one script tag for metadata as json-ld. The syntax and elements are described [here](https://github.com/verona-interfaces/metadata).
 
