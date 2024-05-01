@@ -36,7 +36,7 @@ jobs:
       - name: Push changes
         run: |
           git add index.html
-          git commit -m "update gh-pages"
+          git commit -m "update gh-pagess"
           git push -f
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
