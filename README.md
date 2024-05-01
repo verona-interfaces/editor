@@ -1,22 +1,23 @@
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/verona-interfaces/editor)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
 
 # Verona Interfaces: Specification for Editor
 
 In order to understand Verona Interfaces, please go
-to [Verona Interfaces Introduction](https://github.com/verona-interfaces/introduction)!
+to [Verona Interfaces Introduction](https://verona-interfaces.github.io)!
 
 A Verona Editor is a Html-file to be loaded into an iframe element of a web application. We call the web application "host". This specification describes the asynchronous communication between a host and the editor.
 
 Read the spec here:
 * [Html-Document](https://verona-interfaces.github.io/editor)
-* [Markdown-Document](docs/asyncapi.md)
-* [AsyncApi source yaml](api/editorapi.yaml)
-* [some more doc for variable list](variable-list.doc.md)
+* [AsyncApi source yaml](editorapi.yaml)
 
 The editor file must contain of one script tag for metadata as json-ld. The syntax and elements are described [here](https://github.com/verona-interfaces/metadata).
 
 ## release notes
+
+### 4.3
+* fix variables (must be an array)
+
 ### 4.2
 * add more possible values of `format` property in `variable info`
 
@@ -39,8 +40,13 @@ The editor file must contain of one script tag for metadata as json-ld. The synt
 * eager reporting added
 
 ## For Contributors
-The api is written as [async api](https://www.asyncapi.com) yaml file. After editing, we create markdown and html files for better reading.
+This api is written as [async api](https://www.asyncapi.com/de) yaml file. After committing to main branch, a GitHub action is triggered to build the html page. Don't forget to update the version and the release notes in `README.md`. Then, create an release.
 
-To ease that post processing, we use [node.js](https://nodejs.org). The repo contains a package.json. By running `npm install` you get the tool `@asyncapi/generator` and two templates. Run `npm run ag` to recreate html and markdown representations of the api.
+If you like to check the html page before committing to main branch, 
 
-To test the json schema of variable-list, we use `ajv`. Run `npm run test_variable_list` to check.
+* have an npm/node.js-environment installed
+* check out the repo
+* run `npm install`
+* run the `generate` script in package.json.
+
+After that, you can check `docs/index.html` in a browser. This file will be ignored by git.
