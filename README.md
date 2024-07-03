@@ -15,6 +15,9 @@ The editor file must contain of one script tag for metadata as json-ld. The synt
 
 ## release notes
 
+### 4.4
+* add 'editLevel' to EditorConfig
+
 ### 4.3
 * fix variables (must be an array)
 
