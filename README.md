@@ -15,6 +15,11 @@ The editor file must contain of one script tag for metadata as json-ld. The synt
 
 ## release notes
 
+### 4.4
+* add `alias` to variable
+* add `role` to `editorConfig`
+* do not allow additional properties anymore
+
 ### 4.3
 * fix variables (must be an array)
 
