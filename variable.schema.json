@@ -1,5 +1,5 @@
 {
-    "$id": "variable-list@iqb-standard@1.1",
+    "$id": "variable-list@iqb-standard@1.2",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "variable info for coding",
     "type": "object",
@@ -16,12 +16,12 @@
       },
       "type": {
         "type": "string",
-        "enum": ["string", "integer", "number", "boolean", "attachment"],
+        "enum": ["string", "integer", "number", "boolean", "attachment", "json"],
         "description": "Data type of the variable value"
       },
       "format": {
         "type": "string",
-        "enum": ["text-selection", "image", "capture-image", "audio", "ggb-file", "non-negative", "latex", "math-ml", "math-table", "ggb-variable", ""],
+        "enum": ["text-selection", "image", "capture-image", "audio", "ggb-file", "non-negative", "latex", "math-ml", "math-table", "math-text-mix", "ggb-variable", ""],
         "description": "Data type format"
       },
       "multiple": {
