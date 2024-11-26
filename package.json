@@ -6,7 +6,7 @@
     "url": "https://github.com/verona-interfaces/editor"
   },
   "scripts": {
-    "generate": "asyncapi generate fromTemplate ./editorapi.yaml @asyncapi/html-template -o ./docs --force-write --use-new-generator"
+    "generate": "asyncapi generate fromTemplate ./editorapi.yaml @asyncapi/html-template -o ./docs --force-write --use-new-generator -p singleFile=true"
   },
   "devDependencies": {
     "@asyncapi/cli": "^2.11.0",
