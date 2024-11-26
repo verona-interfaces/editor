@@ -16,7 +16,7 @@
       },
       "type": {
         "type": "string",
-        "enum": ["string", "integer", "number", "boolean", "attachment", "json"],
+        "enum": ["string", "integer", "number", "boolean", "attachment", "json", "no-value"],
         "description": "Data type of the variable value"
       },
       "format": {
