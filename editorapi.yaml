@@ -163,4 +163,4 @@ components:
         - id
         - type
     Variable:
-      $ref: "variable.schema.json"
+      $ref: https://w3id.org/iqb/spec/variable-info/1.3

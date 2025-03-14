@@ -9,14 +9,14 @@ A Verona Editor is a Html-file to be loaded into an iframe element of a web appl
 
 Read the spec here:
 * [Html-Document](https://verona-interfaces.github.io/editor)
-* [AsyncApi source yaml](editorapi.yaml)
+* [AsyncApi source yaml](editorapi.yaml). Please note: The data structure `variable-info` is [externally specified](https://github.com/verona-interfaces/variable-info).
 
 The editor file must contain of one script tag for metadata as json-ld. The syntax and elements are described [here](https://github.com/verona-interfaces/metadata).
 
 ## release notes
 
 ### 4.5
-* add `no-value`, `json` and `coded` to variable types
+* add `no-value`, `json` and `coded` to variable types (apply [variable-info](https://github.com/verona-interfaces/variable-info) v1.3)
 
 ### 4.4
 * add `alias` to variable
