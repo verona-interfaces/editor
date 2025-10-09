@@ -32,10 +32,10 @@ jobs:
         run: |
           npm ci
           npm run generate
-          mv docs/index.html index.html
+          mv public docs
       - name: Push changes
         run: |
-          git add index.html
+          git add docs
           git commit -m "update gh-pages"
           git push -f
         env:
